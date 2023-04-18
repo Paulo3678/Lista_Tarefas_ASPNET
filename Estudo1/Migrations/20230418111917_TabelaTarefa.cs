@@ -20,7 +20,7 @@ namespace Estudo1.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     TituloTarefa = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     DescricaoTarefa = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
-                    GrauTarefa = table.Column<int>(type: "int", maxLength: 1, nullable: false)
+                    GrauTarefa = table.Column<int>(type: "int", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {

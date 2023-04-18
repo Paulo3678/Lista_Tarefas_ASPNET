@@ -13,7 +13,7 @@ namespace Estudo1.Models
         [StringLength(200)]
         public string DescricaoTarefa{ get; set; }
         
-        [StringLength(1)]
+        [StringLength(10)]
         public int GrauTarefa { get; set; }
 
 

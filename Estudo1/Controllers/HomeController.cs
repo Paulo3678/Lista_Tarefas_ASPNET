@@ -1,5 +1,6 @@
 ﻿using Estudo1.Models;
 using Estudo1.Repository.Interfaces;
+using Estudo1.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,10 +16,22 @@ namespace Estudo1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ListaTarefasViewModel listaTarefasViewModel = new ListaTarefasViewModel();
+            listaTarefasViewModel.Tarefas = _tarefaRepository.Tarefas;
+
+            return View(listaTarefasViewModel);
         }
 
-        public void NovaTarefa([FromQuery] string tituloTarefa, [FromQuery] string descricaoTarefa, [FromQuery] int grauTarefa)
+        [HttpPost]
+        public void TestePostDados(ListaTarefasViewModel model)
+        {
+            Console.WriteLine("OLA");
+            Console.WriteLine(model.TituloTarefa);
+        }
+
+
+
+        public RedirectToActionResult NovaTarefa([FromQuery] string tituloTarefa, [FromQuery] string descricaoTarefa, [FromQuery] int grauTarefa)
         {
             TarefaModel tarefa = new TarefaModel
             {
@@ -28,6 +41,8 @@ namespace Estudo1.Controllers
             };
 
             _tarefaRepository.AdicionarTarefa(tarefa);
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()

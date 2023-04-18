@@ -1,4 +1,6 @@
-﻿<main id="conteudo-principal">
+﻿@model ListaTarefasViewModel
+
+<main id="conteudo-principal">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -7,24 +9,24 @@
             </div>
             <div class="col-12 conteudo-principal">
 
-                <form method="get" asp-action="NovaTarefa">
+                <form method="post" asp-action="TestePostDados">
                     <div class="form-group">
                         <label for="tituloTarefa">Titulo da tarefa:</label>
-                        <input class="form-control" type="text" id="tituloTarefa" name="tituloTarefa" asp-/>
+                        <input class="form-control" type="text" id="tituloTarefa" name="tituloTarefa" asp-for="TituloTarefa" />
                     </div>
                     <div class="form-group">
                         <label for="tituloTarefa">Descrição da tarefa:</label>
-                        <textarea class="form-control" type="text" id="descricaoTarefa" name="descricaoTarefa" rows="5"></textarea>
+                        <textarea class="form-control" type="text" id="descricaoTarefa" name="descricaoTarefa" rows="5" asp-for="DescricaoTarefa"></textarea>
                     </div>
                     <div class="d-flex justify-content-start mb-3">
                         <div class="form-check mr-3">
-                            <input class="form-check-input" type="radio" name="grauTarefa" value="1" /> Urgente
+                            <input class="form-check-input" type="radio" name="grauTarefa" value="1" asp-for="GrauTarefa" /> Urgente
                         </div>
                         <div class="form-check mr-3">
-                            <input class="form-check-input" type="radio" name="grauTarefa" value="2" /> Médio
+                            <input class="form-check-input" type="radio" name="grauTarefa" value="2" asp-for="GrauTarefa" /> Médio
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="grauTarefa" value="3" /> Suave
+                            <input class="form-check-input" type="radio" name="grauTarefa" value="3" asp-for="GrauTarefa" /> Suave
                         </div>
                     </div>
 
@@ -45,12 +47,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach(var tarefa in Model.Tarefas)
+                        {
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
+                            <th scope="row">@tarefa.TarefaId</th>
+                                <td>@tarefa.TituloTarefa</td>
+                                <td>@tarefa.DescricaoTarefa</td>
+                                <td>@Model.GrauTarefas[@tarefa.GrauTarefa - 1]</td>
                         </tr>
+                            
+                        }
                     </tbody>
                 </table>
 

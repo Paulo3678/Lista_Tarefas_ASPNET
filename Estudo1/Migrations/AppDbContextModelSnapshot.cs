@@ -30,7 +30,7 @@ namespace Estudo1.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<int>("GrauTarefa")
-                        .HasMaxLength(1)
+                        .HasMaxLength(10)
                         .HasColumnType("int");
 
                     b.Property<string>("TituloTarefa")

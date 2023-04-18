@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Estudo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230418104152_TabelaTarefa")]
+    [Migration("20230418111917_TabelaTarefa")]
     partial class TabelaTarefa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace Estudo1.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<int>("GrauTarefa")
-                        .HasMaxLength(1)
+                        .HasMaxLength(10)
                         .HasColumnType("int");
 
                     b.Property<string>("TituloTarefa")
