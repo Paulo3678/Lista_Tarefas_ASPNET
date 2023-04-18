@@ -19,7 +19,6 @@ namespace Estudo1
                 options => options.UseMySQL("Server=127.0.0.1;Database=bancoEstudosCsharp;Uid=root;")
             );
 
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
