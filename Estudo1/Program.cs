@@ -1,4 +1,6 @@
 using Estudo1.Context;
+using Estudo1.Repository;
+using Estudo1.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +16,8 @@ namespace Estudo1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<AppDbContext, AppDbContext>();
+
+            builder.Services.AddTransient<ITarefaRepository, TarefaRepository>();
 
             builder.Services.AddDbContext<AppDbContext>(
                 options => options.UseMySQL("Server=127.0.0.1;Database=bancoEstudosCsharp;Uid=root;")
