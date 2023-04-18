@@ -1,13 +1,24 @@
+using Estudo1.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Estudo1
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<AppDbContext, AppDbContext>();
+
+            builder.Services.AddDbContext<AppDbContext>(
+                options => options.UseMySQL("Server=127.0.0.1;Database=bancoEstudosCsharp;Uid=root;")
+            );
+
 
             var app = builder.Build();
 
@@ -32,5 +43,6 @@ namespace Estudo1
 
             app.Run();
         }
+
     }
 }
