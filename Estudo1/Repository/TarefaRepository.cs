@@ -14,8 +14,8 @@ namespace Estudo1.Repository
 
         public IEnumerable<TarefaModel> Tarefas => _context.Tarefa;
 
-        public void AdicionarTarefa(TarefaModel tarefa) {
-        
+        public void AdicionarTarefa(TarefaModel tarefa)
+        {
             _context.Tarefa.Add(tarefa);
             _context.SaveChanges();
         }

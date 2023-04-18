@@ -23,24 +23,15 @@ namespace Estudo1.Controllers
         }
 
         [HttpPost]
-        public void TestePostDados(ListaTarefasViewModel model)
+        public RedirectToActionResult TestePostDados(ListaTarefasViewModel model)
         {
-            Console.WriteLine("OLA");
-            Console.WriteLine(model.TituloTarefa);
-        }
-
-
-
-        public RedirectToActionResult NovaTarefa([FromQuery] string tituloTarefa, [FromQuery] string descricaoTarefa, [FromQuery] int grauTarefa)
-        {
-            TarefaModel tarefa = new TarefaModel
+            TarefaModel tarefaModel = new TarefaModel
             {
-                TituloTarefa = tituloTarefa,
-                DescricaoTarefa = descricaoTarefa,
-                GrauTarefa = grauTarefa
+                TituloTarefa = model.TituloTarefa,
+                DescricaoTarefa = model.DescricaoTarefa,
+                GrauTarefa = model.GrauTarefa
             };
-
-            _tarefaRepository.AdicionarTarefa(tarefa);
+            _tarefaRepository.AdicionarTarefa(tarefaModel);
 
             return RedirectToAction("Index");
         }
