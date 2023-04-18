@@ -1,1 +1,60 @@
-﻿
+﻿<main id="conteudo-principal">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Lista de tarefas</h2>
+                <hr />
+            </div>
+            <div class="col-12 conteudo-principal">
+
+                <form>
+                    <div class="form-group">
+                        <label for="tituloTarefa">Titulo da tarefa:</label>
+                        <input class="form-control" type="text" id="tituloTarefa" name="tituloTarefa" />
+                    </div>
+                    <div class="form-group">
+                        <label for="tituloTarefa">Descrição da tarefa:</label>
+                        <textarea class="form-control" type="text" id="descricaoTarefa" name="descricaoTarefa" rows="5"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-start mb-3">
+                        <div class="form-check mr-3">
+                            <input class="form-check-input" type="radio" name="grauTarefa" /> Urgente
+                        </div>
+                        <div class="form-check mr-3">
+                            <input class="form-check-input" type="radio" name="grauTarefa" /> Médio
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="grauTarefa" /> Suave
+                        </div>
+                    </div>
+
+                    <button class="btn btn-info">Adicionar tarefa</button>
+                </form>
+
+                <hr />
+
+                <h4>Suas tarefas</h4>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo da tarefa</th>
+                            <th scope="col">Descrição da tarefa</th>
+                            <th scope="col">Grau da tarefa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</main>
