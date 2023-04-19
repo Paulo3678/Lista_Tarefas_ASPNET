@@ -8,6 +8,8 @@ namespace Estudo1.ViewModels
         public IEnumerable<TarefaModel> Tarefas { get; set; }
         public string[] GrauTarefas = new string[3] { "Urgente", "Médio", "Suave" };
 
+        public ISession Session { get; set; }
+
         [DisplayName("Titulo")]
         public string TituloTarefa { get; set; }
 
@@ -16,5 +18,6 @@ namespace Estudo1.ViewModels
 
         [DisplayName("Grau")]
         public int GrauTarefa { get; set; }
+
     }
 }

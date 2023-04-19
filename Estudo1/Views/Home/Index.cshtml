@@ -7,9 +7,16 @@
                 <h2>Lista de tarefas</h2>
                 <hr />
             </div>
+            @{
+                if (Model.Session.Get("teste") != null)
+                {
+                    <h1>@Model.Session.GetString("teste")</h1>
+                }
+            }
+
             <div class="col-12 conteudo-principal">
 
-                <form method="post" asp-action="TestePostDados">
+                <form method="post" asp-action="AdicionarTarefa">
                     <div class="form-group">
                         <label for="tituloTarefa">Titulo da tarefa:</label>
                         <input class="form-control" type="text" id="tituloTarefa" name="tituloTarefa" asp-for="TituloTarefa" />
@@ -47,15 +54,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var tarefa in Model.Tarefas)
+                        @foreach (var tarefa in Model.Tarefas)
                         {
-                        <tr>
-                            <th scope="row">@tarefa.TarefaId</th>
+                            <tr>
+                                <th scope="row">@tarefa.TarefaId</th>
                                 <td>@tarefa.TituloTarefa</td>
                                 <td>@tarefa.DescricaoTarefa</td>
                                 <td>@Model.GrauTarefas[@tarefa.GrauTarefa - 1]</td>
-                        </tr>
-                            
+                            </tr>
+
                         }
                     </tbody>
                 </table>
@@ -64,3 +71,10 @@
         </div>
     </div>
 </main>
+
+@{
+    if (Model.Session.Get("teste") != null)
+    {
+        Model.Session.Remove("teste");
+    }
+}

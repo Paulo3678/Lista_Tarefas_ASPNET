@@ -23,6 +23,11 @@ namespace Estudo1
                 options => options.UseMySQL("Server=127.0.0.1;Database=bancoEstudosCsharp;Uid=root;")
             );
 
+            // SESSIONS
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,6 +37,10 @@ namespace Estudo1
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // SESSIONS
+            app.UseSession();
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
