@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pxww3Prwlp1Y7TFDNR/YhtKjQdIVEJXpNSjv+ez0dOo=",
+  "Hash": "ZTRLYB3kMLLu50dWfdJMtXdLbXiMuaNlCE07j2D0rIY=",
   "Source": "Estudo1",
   "BasePath": "_content/Estudo1",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\paulo\\Documents\\Estudos\\csharp-aspnet\\estudos\\Estudo1\\Estudo1\\wwwroot\\js\\validacoes.js",
+      "SourceId": "Estudo1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\paulo\\Documents\\Estudos\\csharp-aspnet\\estudos\\Estudo1\\Estudo1\\wwwroot\\",
+      "BasePath": "_content/Estudo1",
+      "RelativePath": "js/validacoes.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\validacoes.js"
     },
     {
       "Identity": "C:\\Users\\paulo\\Documents\\Estudos\\csharp-aspnet\\estudos\\Estudo1\\Estudo1\\wwwroot\\lib\\jquery\\dist\\jquery.js",

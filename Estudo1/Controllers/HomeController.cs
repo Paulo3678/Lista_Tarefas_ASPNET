@@ -2,8 +2,8 @@
 using Estudo1.Repository.Interfaces;
 using Estudo1.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI;
 using System.Diagnostics;
 
 namespace Estudo1.Controllers
@@ -40,11 +40,20 @@ namespace Estudo1.Controllers
 
                 return RedirectToAction("Index");
             }
+            catch (MySqlException ex)
+            {
+                HttpContext.Session.SetString("mensagem_erro", "É preciso preencher todos os campos corretamente!");
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                HttpContext.Session.SetString("mensagem_erro", "É preciso preencher todos os campos corretamente!");
+                return RedirectToAction("Index");
+            }
             catch (Exception ex)
             {
-                HttpContext.Session.SetString("teste", "123");
+                HttpContext.Session.SetString("mensagem_erro", "Um erro inesperado aconteceu, tente novamente mais tarde.");
                 return RedirectToAction("Index");
-
             }
         }
 
