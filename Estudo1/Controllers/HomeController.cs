@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using System.Text;
 using Newtonsoft.Json;
+using Estudo1.Exceptions;
 
 namespace Estudo1.Controllers
 {
@@ -64,10 +65,18 @@ namespace Estudo1.Controllers
         {
             using (StreamReader reader = new StreamReader(HttpContext.Request.Body, Encoding.UTF8))
             {
-                string requestBody = await reader.ReadToEndAsync();
-                TesteModel json = JsonConvert.DeserializeObject<TesteModel>(requestBody);
-                Console.WriteLine(json.teste);
-                // lógica para processar os dados recebidos
+                try
+                {
+                    string requestBody = await reader.ReadToEndAsync();
+                    ExcluirTarefaViewModel tarefaParaExcluir = JsonConvert.DeserializeObject<ExcluirTarefaViewModel>(requestBody);
+                    tarefaParaExcluir.ValidarParametros();
+
+                    // logica para excluir tarefa
+
+                }catch (ExcluirTarefaVMException e) {
+                    return Ok("DEU PROBLEMA: " + e.Message);
+                }
+
                 return Ok();
             }
         }
