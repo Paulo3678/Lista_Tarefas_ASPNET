@@ -52,6 +52,7 @@
                             <th scope="col">Titulo da tarefa</th>
                             <th scope="col">Descrição da tarefa</th>
                             <th scope="col">Grau da tarefa</th>
+                            <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +63,14 @@
                                 <td>@tarefa.TituloTarefa</td>
                                 <td>@tarefa.DescricaoTarefa</td>
                                 <td>@Model.GrauTarefas[@tarefa.GrauTarefa - 1]</td>
+                                <td>
+                                    <button>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                    <button>
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </td>
                             </tr>
 
                         }

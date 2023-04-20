@@ -41,7 +41,6 @@ namespace Estudo1
             // SESSIONS
             app.UseSession();
 
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

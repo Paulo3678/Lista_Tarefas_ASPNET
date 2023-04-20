@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace Estudo1.Controllers
 {
@@ -56,6 +58,21 @@ namespace Estudo1.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ExcluirTarefa()
+        {
+            using (StreamReader reader = new StreamReader(HttpContext.Request.Body, Encoding.UTF8))
+            {
+                string requestBody = await reader.ReadToEndAsync();
+                TesteModel json = JsonConvert.DeserializeObject<TesteModel>(requestBody);
+                Console.WriteLine(json.teste);
+                // lógica para processar os dados recebidos
+                return Ok();
+            }
+        }
+
+
 
         public IActionResult Error()
         {
